@@ -1,0 +1,45 @@
+<!DOCTYPE>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no" name="viewport" id="viewport" />
+<title>无标题文档</title>
+</head>
+<script type="text/javascript" src="jquery-1.11.1.min.js"></script>
+<link rel="stylesheet" type="text/css" href="main.css">
+<script type="text/javascript" src="main.js"></script>
+<script>
+$(function(){
+	$.ajax({
+		type:"POST",
+		url:'/imgList'
+	}).done(function(msg){
+		if(msg==""||msg==null)return false;
+		eval("msg="+msg);
+		var html="";
+		for(var i=0;i<msg.length;i++){
+			html+="<li><img src='"+msg[i].url+"' /></li>";
+		}
+		$("#img_list").append(html);
+	}).fail(function(){
+		return false;
+	});
+});
+
+</script>
+<body>
+<div class="top">
+	<a href="/login.html">登录</a>
+	<a href="/regist.html">注册</a>
+</div>
+
+	<ul class="regit">
+    	<li>登入</li>
+    	<li><span>用户名：</span><input type="text" id="user" name="user"/></li>
+    	<li><span>密码：</span><input type="psd" id="pwd" name="pwd"/></li>
+        <li><input type="button" value="登录" id="login_submit"></li>
+    </ul>
+    <ul id="img_list" class="img_list">
+    </ul>
+</body>
+</html>
