@@ -1,3 +1,4 @@
+@charset "utf-8";
 /* reset */
 html,body,h1,h2,h3,h4,h5,h6,div,dl,dt,dd,ul,ol,li,p,blockquote,pre,hr,figure,table,caption,th,td,form,fieldset,legend,input,button,textarea,menu{margin:0;padding:0;}
 header,footer,section,article,aside,nav,hgroup,address,figure,figcaption,menu,details{display:block;}
@@ -30,15 +31,25 @@ a,a:hover{color:#333;}
 	margin:10px;
 }
 
+.Head{width:100%;
+	height:24px;
+	background:#CCC;}
+
 .top{
-	width:100%;
+	width:1000px;
 	height:24px;
 	background:#CCC;
 	color:#fff;
 	font-size:12px;
 	text-align:center;
 	line-height:24px;
+	display:block;
+	overflow:hidden;
+	margin:auto;
 }
+
+.top span{float:left;margin-left:30px;}
+.top a{float:right;margin-right:30px;}
 
 .img_list{
 	width:100%;
@@ -47,17 +58,25 @@ a,a:hover{color:#333;}
 }
 
 .img_list li{
-	padding:10px;
+	margin:15px 15px 0px 15px;
 	float:left;
-	overflow:hidden;
+	height:250px;
+	width:250px;
+	background:#d7d7d7;
+	position:relative;
 }
 
 .img_list li img{
-	height:250px;
-	width:250px;
+	width:100%;
 }
 
 span.d{
 	display:block;
 	cursor:pointer;
+	position:absolute;
+	right:-16px;
+	top:-16px;
+	width:32px;
+	height:32px;background:url("/images/cancel32.png");
+	text-indent:-9999px;
 }
