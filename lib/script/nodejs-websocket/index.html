@@ -1,0 +1,69 @@
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+</head>
+<body>
+<div id="output"></div>
+<script>
+function checkBrowser(){
+	if (window.WebSocket){
+	log("This browser supports WebSocket!");
+	} else {
+	log("This browser does not support WebSocket.");
+	}
+}
+
+var wsServer = 'ws://localhost:3001';
+var ws = new WebSocket(wsServer);
+
+ws.onopen = function (e) {
+log("Connected to WebSocket server.",e);
+ws.send(msg);
+log("SEND : "+ msg);
+
+} ;
+function setup(mmm,ws){
+
+
+//ws.onclose = function (e) {
+//log("Disconnected",e);
+//} ;
+
+var sendMessage = function(msg){
+ws.send(msg);
+log("SEND : "+ msg);
+}
+sendMessage(mmm);
+ws.onmessage = function(e) {
+log("RECEIVED: " + e.data, e);
+//ws.close();
+}
+
+ws.onerror = function (e) {
+log('Error occured: ' + e.data,e);
+} ;
+
+}
+
+function log(s,e) {
+var output = document.getElementById("output");
+var p = document.createElement("p");
+p.style.wordWrap = "break-word";
+p.style.padding="10px";
+p.style.background="#eee";
+p.textContent = "LOG : "+s;
+output.appendChild(p);
+console.log("LOG : "+s, e);
+}
+
+checkBrowser();
+setup();
+
+</script>
+
+<input type="text" value="" id="msg" />
+<input type="button" value="提交" onclick="setup(document.getElementById('msg').value,ws)"/>
+</body>
+</html>
