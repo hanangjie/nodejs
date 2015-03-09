@@ -36,23 +36,54 @@
 </div>
 <div class="am-g">
   <div class="am-u-lg-6 am-u-md-8 am-u-sm-centered">
-    <h3>注册</h3>
+    <!--<h3>注册</h3>
     <form class="am-form" id="login">
-      <label for="email">邮箱:</label>
-      <input type="email" name="" id="email" value="">
-      <br>
+          <label for="email">邮箱:</label>
+      <div class="am-form-group am-form-icon am-form-feedback">
+          <input type="email" name="" id="email" value="" class="am-form-field">
+          <span class=""></span>
+      </div>
       <label for="password">密码:</label>
-      <input type="password" name="" id="password" value="">
-      <br> 
+      <div class="am-form-group  am-form-icon am-form-feedback">
+          <input type="password" name="" id="password" value="">
+          <span class=""></span>
+      </div>
        <label for="password">确认密码:</label>
-      <input type="password" name="" id="passwordagain" value="">
+      <div class="am-form-group  am-form-icon am-form-feedback">
+          <input type="password" name="" id="passwordagain" value="">
+          <span class=""></span>
+      </div>
       <br>
      
       <div class="am-cf">
         <input type="submit" name="register" value="注册" class="am-btn am-btn-primary am-btn-sm am-fl">
         <input type="submit" name="" value="已有账号登陆" onclick="location.href='index.html'" class="am-btn am-btn-default am-btn-sm am-fr">
       </div>
-    </form>
+    </form>-->
+    
+    <form action="" class="am-form" data-am-validator  id="login">
+  <fieldset>
+    <legend>注册</legend>
+    <div class="am-form-group">
+      <label for="email">邮箱：</label>
+      <input type="text" id="email" minlength="5"
+             placeholder="输入邮箱" required/>
+    </div>
+
+    <div class="am-form-group">
+      <label for="password">密码：</label>
+      <input type="password" id="password" placeholder="6 位数字密码" pattern="^\d{6}$" required/>
+    </div>
+
+    <div class="am-form-group">
+      <label for="passwordagain">确认密码：</label>
+      <input type="password" id="passwordagain" placeholder="请与上面输入的值一致" data-equal-to="#doc-vld-pwd-1" required/>
+    </div>
+
+    <button class="am-btn am-btn-secondary" type="submit">提交</button>
+    <input type="submit" name="" value="已有账号登陆" onclick="location.href='index.html'" class="am-btn am-btn-default am-btn-sm am-fr">
+  </fieldset>
+</form>
     <hr>
     <p>© 2014 AllMobilize, Inc. Licensed under MIT license.</p>
   </div>
