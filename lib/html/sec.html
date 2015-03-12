@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+</head>
+
+<script>
+var secret="sec={";
+var html="";
+
+var answer="ans={";
+var html_a="";
+
+for(var i=0;i<10;i++){
+	var t=String.fromCharCode(parseInt(26*Math.random()+65))+String.fromCharCode(0x60+parseInt(26*Math.random()));
+	if(html.indexOf(t)!=-1){
+		i--;
+		continue;
+	}
+	html+=",'"+i+"':'"+t+"'";
+	html_a+=",'"+t+"':'"+i+"'";
+}
+//大写字母
+for(var i=0;i<26;i++){
+	var obj=String.fromCharCode(i+65);
+	var t="%"+String.fromCharCode(0x60+parseInt(26*Math.random())+1);
+	if(html.indexOf(t)!=-1){
+		i--;
+		continue;
+	}
+	html+=",'"+obj+"':'"+t+"'";
+	html_a+=",'"+t+"':'"+obj+"'";
+}
+
+//小写字母
+for(var i=0;i<26;i++){
+	var obj_up=String.fromCharCode(0x60+i+1);
+	var t_up="%"+String.fromCharCode(parseInt(26*Math.random())+65);
+	
+	if(html.indexOf(t_up)!=-1){
+		i--;
+		continue;
+	}
+	html+=",'"+obj_up+"':'"+t_up+"'";
+	html_a+=",'"+t_up+"':'"+obj_up+"'";
+}
+
+html=html.substring(1);
+html+=",'@':'%1','.':'%2'";
+secret+=html;
+secret+="}";
+
+
+html_a=html_a.substring(1);
+html_a+=",'%1':'@','%2':'.'";
+answer+=html_a;
+answer+="}";
+
+document.write(secret+"||||"+answer);
+//str="A";
+//code = str.charCodeAt(); 
+//str2 = String.fromCharCode(code);
+//str3 = String.fromCharCode(0x60+26);
+//document.write(code+'<br />');
+//document.write(str2+'<br />');
+//document.write(str3);
+
+//65,A,a
+
+</script>
+<body>
+</body>
+</html>
